@@ -2,7 +2,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import traceback
 from send import send
 
-IP = "3.139.30.141"
+IP = "localhost"
 PORT = 8001
 
 
