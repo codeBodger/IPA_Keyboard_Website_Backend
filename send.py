@@ -6,5 +6,9 @@ def send(ip: str, port: int, data: bytes):
 	s.connect((ip, port))
 	s.send(data)
 	s.close()
-	print(str(data[:3]))
+	fprint(str(data[:3]))
 	return
+
+def fprint(data: str) -> None:
+	with open("log", "a") as f:
+		f.write(f"Time:\t{data}\n")
