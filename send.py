@@ -15,6 +15,6 @@ def send(ip: str, port: int, data: bytes):
 
 def fprint(*text) -> None:
 	with open("log", "a") as f:
-		f.write(f"{datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")}\t")
+		f.write(f"{datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')}\t")
 		for part in text:
 			f.write(f"{part}\n")
