@@ -1,12 +1,14 @@
 import socket
 
-
 def send(ip: str, port: int, data: bytes):
-	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	s.connect((ip, port))
-	s.send(data)
-	s.close()
-	fprint(str(data[:3]))
+	try:
+		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		s.connect((ip, port))
+		s.send(data)
+		s.close()
+		fprint(str(data[:3]))
+	except Exception as e:
+		fprint(e.with_traceback())
 	return
 
 def fprint(data: str) -> None:
