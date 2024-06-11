@@ -8,7 +8,7 @@ def send(ip: str, port: int, data: bytes):
 		s.connect((ip, port))
 		s.send(data)
 		s.close()
-		fprint(str(data[:3]))
+		fprint(str(data))
 	except Exception as e:
 		fprint(e, traceback.format_exc())
 	return
