@@ -1,4 +1,6 @@
 import socket
+import traceback
+from datetime import datetime
 
 def send(ip: str, port: int, data: bytes):
 	try:
@@ -8,9 +10,11 @@ def send(ip: str, port: int, data: bytes):
 		s.close()
 		fprint(str(data[:3]))
 	except Exception as e:
-		fprint(e.__traceback__)
+		fprint(e, traceback.format_exc())
 	return
 
-def fprint(data: str) -> None:
+def fprint(*text) -> None:
 	with open("log", "a") as f:
-		f.write(f"Time:\t{data}\n")
+		f.write(f"{datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")}\t")
+		for part in text:
+			f.write(f"{part}\n")
