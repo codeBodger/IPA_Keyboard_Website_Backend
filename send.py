@@ -7,8 +7,10 @@ def send(ip: str, port: int, data: bytes):
 		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		s.connect((ip, port))
 		s.send(data)
+		recived = "success" if s.recv(1) else "failure"
 		s.close()
-		fprint(str(data))
+		print(recived)
+		fprint(f"{data}\t{recived}")
 	except Exception as e:
 		fprint(e, traceback.format_exc())
 	return
