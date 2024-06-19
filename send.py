@@ -18,7 +18,7 @@ def send(ip: str, port: int, data: str, activity: str):
 			s.send(b'\x00' + data)
 			key = s.recv(18)
 			response_code = int.from_bytes(s.recv(1), "big")
-			print(key)
+			print(key.decode('utf-8'))
 		elif activity == "send":
 			data = int(data[:3]).to_bytes(1,"little") + bytes(data[3:], 'utf-8')
 			s.send(b'\x01' + data)
